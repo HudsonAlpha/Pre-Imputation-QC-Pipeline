@@ -1,9 +1,9 @@
 #!/bin/bash
 
 working_dir=$PWD/
-wraynor_script=/cluster/home/jtaylor/scripts/qc_imputation_prep/dependencies/HRC-1000G-check-bim.pl
-snp_sift=/cluster/home/jtaylor/scripts/qc_imputation_prep/dependencies/SnpSift.jar
-r_script=/cluster/home/jtaylor/scripts/qc_imputation_prep/dependencies/qc_imputation_r_script.R
+wraynor_script=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/HRC-1000G-check-bim.pl
+snp_sift=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/SnpSift.jar
+r_script=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/qc_imputation_r_script.R
 
 ### set variables for options
 input_prefix=""
@@ -32,13 +32,13 @@ original_prefix=${input_prefix} #set the original prefix the user inputs
 ### set two reference files to hg19 or hg38 depending on user's input	
 if [[ $reference_flag -eq 38 ]]
 then
-	freeze8_1=/cluster/home/jtaylor/scripts/qc_imputation_prep/dependencies/chrALL.BRAVO_TOPMed_Freeze_8_hg38.tab.gz
-	freeze8_2=/cluster/home/jtaylor/scripts/qc_imputation_prep/dependencies/PASS.Variantschr.BRAVO_TOPMed_Freeze_8_hg38.tab.gz	
+	freeze8_1=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/chrALL.BRAVO_TOPMed_Freeze_8_hg38.tab.gz
+	freeze8_2=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/PASS.Variantschr.BRAVO_TOPMed_Freeze_8_hg38.tab.gz	
 
 elif [[ $reference_flag -eq 19 ]]
 then
-	freeze8_1=/cluster/home/jtaylor/scripts/qc_imputation_prep/dependencies/chrALL.BRAVO_TOPMed_Freeze_8_hg19.tab.gz
-	freeze8_2=/cluster/home/jtaylor/scripts/qc_imputation_prep/dependencies/PASS.Variantschr.BRAVO_TOPMed_Freeze_8_hg19.tab.gz
+	freeze8_1=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/chrALL.BRAVO_TOPMed_Freeze_8_hg19.tab.gz
+	freeze8_2=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/PASS.Variantschr.BRAVO_TOPMed_Freeze_8_hg19.tab.gz
 
 fi
 
