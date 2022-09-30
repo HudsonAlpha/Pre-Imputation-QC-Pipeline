@@ -21,7 +21,7 @@ Files / qc_imputation_prep.sh
 	dependencies/qc_imputation_r_script.R
 	dependencies/SnpSift.jar
 
-Modules / plink 1.90, R 4.1.1, samtools 1.9
+Modules / plink 1.90, R 4.1.1, htslib 1.9
 
 Notes / To run, make sure to update all hard coded paths to the actual path that you have access to. Also make sure you are in the directory that contains the array data. Use the "-i" or "--input" flags to input the the prefix for the input files and use any other flags you may want to use. The pipeline will use hg38 reference files unless you use the "r" or "--reference" flags. The pipeline will also remove all intermediate files unless you use the "--keep-files" flag. All output files will be in a new directory named "qc_output".
 	sample command "./qc_imputation_prep.sh -i input_array_data --het --hardy"
