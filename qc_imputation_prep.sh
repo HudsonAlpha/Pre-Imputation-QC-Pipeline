@@ -1,7 +1,7 @@
 #!/bin/bash
 
 working_dir=$PWD/
-wraynor_script=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/HRC-1000G-check-bim.pl
+raynor_script=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/HRC-1000G-check-bim.pl
 snp_sift=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/SnpSift.jar
 r_script=/cluster/home/jtaylor/scripts/Pre-Imputation-QC-Pipeline/dependencies/qc_imputation_r_script.R
 
@@ -85,7 +85,7 @@ then
 	
 fi
 
-### apply a 5% missingness by person and 1% missingness by geno filter, convert the X chromosome to 23 for Wraynor script, and subset to chr1-23 for the TOPMed database
+### apply a 5% missingness by person and 1% missingness by geno filter, convert the X chromosome to 23 for raynor script, and subset to chr1-23 for the TOPMed database
 plink \
 	--bfile ${input_prefix} \
 	--mind 0.05 \
@@ -169,8 +169,8 @@ plink \
 	--bfile ${input_prefix} \
 	--out ${input_prefix}
 
-### run the Wraynor script to compare to ALL TOPMed freeze 8 variants to be comprehensive at this stage
-perl $wraynor_script \
+### run the raynor script to compare to ALL TOPMed freeze 8 variants to be comprehensive at this stage
+perl $raynor_script \
 	-b ${input_prefix}.bim \
 	-f ${input_prefix}.frq \
 	-r $freeze8_1 \
@@ -212,7 +212,7 @@ plink \
 
 
 ### compare to PASS filter variants for TOPMed to ensure highest quality to go into imputation
-perl $wraynor_script \
+perl $raynor_script \
 	-b ${input_prefix}.bim \
 	-f ${input_prefix}.frq \
 	-r $freeze8_2 \
